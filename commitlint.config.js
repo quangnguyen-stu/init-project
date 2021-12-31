@@ -4,7 +4,7 @@ const Configuration = {
         name: 'init-project',
         path: './',
         parserOpts: {
-            headerPattern: /^(init-project)-[0-9]+\((\w*)\)\s(.*)$/,
+            headerPattern: /^(myDemo)-[0-9]+\((\w*)\)\s(.*)$/,
             headerCorrespondence: ['ticket', 'type', 'subject'],
         },
     },
