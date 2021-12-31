@@ -1,2 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+docker compose exec app yarn prettier --check .
+docker compose exec app composer check
