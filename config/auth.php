@@ -37,7 +37,11 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver' => 'cognito', // This line is important
+            'provider' => 'users',
+        ],
+        'api' => [
+            'driver' => 'token',
             'provider' => 'users',
         ],
     ],

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use function GuzzleHttp\Promise\all;
 
 class HomeController extends Controller
 {

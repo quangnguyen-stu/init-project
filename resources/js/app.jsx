@@ -9,7 +9,7 @@ let timeout = null;
 
 createInertiaApp({
     resolve: (name) =>
-        import(`./Home/${name}`).then((module) => module.default),
+        import(`./Home/${name}.jsx`).then((module) => module.default),
     setup({ el, App, props }) {
         render(<App {...props} />, el);
     },
