@@ -241,10 +241,12 @@ export default function Login({ flash }) {
             </Grid>
             <Grid item className={classes.styleContainer} xs={12}>
                 {/*<div className="g-signin2" data-onsuccess="onSignIn"></div>*/}
-                <Button variant='outlined' onClick={()=>{
-                    Inertia.get(route("login.provider",{driver:'google'}))
-                }}
-                   className="btn btn-secondary">Google sign In</Button>
+
+                <a href="redirect/google"
+                   className="ml-2 btn-google">
+                    <strong>Login With Google</strong>
+                </a>
+
             </Grid>
             <Box mt={8}>
                 <Copyright />

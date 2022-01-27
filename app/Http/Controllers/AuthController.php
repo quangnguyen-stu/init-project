@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use BlackBits\LaravelCognitoAuth\Auth\AuthenticatesUsers;
 use BlackBits\LaravelCognitoAuth\Auth\RegistersUsers;
@@ -50,6 +51,7 @@ class AuthController extends Controller
             $newUser->email             = $user->getEmail();
             $newUser->email_verified_at = now();
             $newUser->avatar            = $user->getAvatar();
+            $newUser->password          =  Hash::make('123123');
             $newUser->save();
 
             auth()->login($newUser, true);
@@ -82,9 +84,5 @@ class AuthController extends Controller
     public function userLogOut(Request $request)
     {
        return $this->logout($request);
-    }
-
-    public function handleGoogleLogin(Request $request){
-        dd($request);
     }
 }

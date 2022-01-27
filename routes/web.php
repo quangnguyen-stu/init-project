@@ -26,11 +26,11 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('authentica
 Route::get('/logout', [AuthController::class, 'userLogOut'])->middleware('auth')->name('logout');
 Route::resource('home', HomeController::class);
 
-Route::get('/auth/google',[AuthController::class,'handleGoogleLogin'])->name('google.login');
-
 Route::get('redirect/{driver}', [AuthController::class,'redirectToProvider'])
-    ->name('login.provider')
-    ->where('driver', implode('|', config('auth.socialite.drivers')));
+        ->name('login.provider')
+        ->where('driver', implode('|', config('auth.socialite.drivers')));
+
+Route::get('auth/{driver}/callback', [AuthController::class, 'handleProviderCallback']);
 
 Route::middleware('auth')->group(function () {
 //    Route::get('/', function () {
