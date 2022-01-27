@@ -56,6 +56,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function Layout(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
@@ -67,8 +68,9 @@ function Layout(_ref) {
         href: "/about",
         children: "About"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        href: "/contact",
-        children: "Contact"
+        component: _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink,
+        href: route('logout'),
+        children: "Log out"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("article", {
       children: children

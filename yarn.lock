@@ -5606,6 +5606,13 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+react-gapi@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-gapi/-/react-gapi-1.0.1.tgz#a3657e1f349a20ba7ad7e6ebdfd4910b5983925d"
+  integrity sha512-jFF1qoPrGcivG+gcBUPoPkdkUFMAfWeMgb2eME+jbtJ0doAuz8NEDanBOCY7vbwCdPN8anty2zK+7WWkQB9dVw==
+  dependencies:
+    react-weblibrary "^1.0.1"
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -5625,6 +5632,13 @@ react-transition-group@^4.4.0, react-transition-group@^4.4.2:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-weblibrary@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-weblibrary/-/react-weblibrary-1.0.2.tgz#72cc2f45ff1982c8c47651530ac6d67d5f32a578"
+  integrity sha512-jJcCTRKsUEjS/ixZlZJbzI0XTVyg54/CauQMIzyoeGauM8QOAG5ToRAoBrHiOb7IJnyln6kdR7wmicItss5oKg==
+  dependencies:
+    ts-essentials "^9.0.0"
 
 react@^17.0.2:
   version "17.0.2"
@@ -6339,6 +6353,11 @@ toposort@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
   integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
+
+ts-essentials@^9.0.0:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-9.1.2.tgz#46db6944b73b4cd603f3d959ef1123c16ba56f59"
+  integrity sha512-EaSmXsAhEiirrTY1Oaa7TSpei9dzuCuFPmjKRJRPamERYtfaGS8/KpOSbjergLz/Y76/aZlV9i/krgzsuWEBbg==
 
 tsconfig-paths@^3.11.0:
   version "3.12.0"

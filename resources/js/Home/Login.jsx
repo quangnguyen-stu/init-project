@@ -63,7 +63,7 @@ const Copyright = () => (
 );
 
 export default function Login({ flash }) {
-    const { message: flashMsg } = flash;
+    // const { message: flashMsg } = flash;
     const classes = useStyles();
 
     document.title = "LOGIN";
@@ -105,11 +105,18 @@ export default function Login({ flash }) {
         setOpen(false);
     };
 
-    useEffect(() => {
-        if (flashMsg.key) {
-            setOpen(true);
-        }
-    }, [flashMsg]);
+    // useEffect(() => {
+    //     if (flashMsg.key) {
+    //         setOpen(true);
+    //     }
+    // }, [flashMsg]);
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
 
     return (
         <Container component="main">
@@ -124,8 +131,9 @@ export default function Login({ flash }) {
                         open={open}
                         onClose={handleClose}
                     >
-                        <Alert severity={flashMsg.type} variant="filled">
-                            {t(flashMsg.key)}
+                        <Alert severity='red' variant="filled">
+                            {/*{t(flashMsg.key)}*/}
+                            failed login
                         </Alert>
                     </Snackbar>
 
@@ -221,7 +229,7 @@ export default function Login({ flash }) {
                             <Grid container>
                                 <Link
                                     component={InertiaLink}
-                                    href={route("password.forgot")}
+                                    // href={route("password.forgot")}
                                     variant="body2"
                                 >
                                     Forgot password?
@@ -230,6 +238,13 @@ export default function Login({ flash }) {
                         </form>
                     </div>
                 </Card>
+            </Grid>
+            <Grid item className={classes.styleContainer} xs={12}>
+                {/*<div className="g-signin2" data-onsuccess="onSignIn"></div>*/}
+                <Button variant='outlined' onClick={()=>{
+                    Inertia.get(route("login.provider",{driver:'google'}))
+                }}
+                   className="btn btn-secondary">Google sign In</Button>
             </Grid>
             <Box mt={8}>
                 <Copyright />

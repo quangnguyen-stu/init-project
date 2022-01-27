@@ -38277,7 +38277,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + chunkId + ".js?id=" + {"resources_js_Home_Index_jsx":"7b3edbb0802dd70b","resources_js_Home_Login_jsx":"632067faea117b10","resources_js_Home_about_jsx":"93eb137866cd4d52"}[chunkId] + "";
+/******/ 			return "js/" + chunkId + ".js?id=" + {"resources_js_Home_Index_jsx":"fff3ca8e1a384f24","resources_js_Home_Login_jsx":"c1412122846e0983","resources_js_Home_about_jsx":"b969f815b1a00e55"}[chunkId] + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	

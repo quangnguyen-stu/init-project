@@ -19,11 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('home', HomeController::class);
 Route::get('about', [HomeController::class,'about'])->name('home.about');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::get('/logout', [AuthController::class, 'userLogOut'])->middleware('auth')->name('logout');
+Route::resource('home', HomeController::class);
 
-//Route::middleware('auth')->group(function () {
-//});
+Route::get('/auth/google',[AuthController::class,'handleGoogleLogin'])->name('google.login');
+
+Route::get('redirect/{driver}', [AuthController::class,'redirectToProvider'])
+    ->name('login.provider')
+    ->where('driver', implode('|', config('auth.socialite.drivers')));
+
+Route::middleware('auth')->group(function () {
+//    Route::get('/', function () {
+//        return redirect('/home');
+//    });
+});

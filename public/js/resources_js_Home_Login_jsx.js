@@ -18139,7 +18139,7 @@ var Copyright = function Copyright() {
 
 function Login(_ref) {
   var flash = _ref.flash;
-  var flashMsg = flash.message;
+  // const { message: flashMsg } = flash;
   var classes = useStyles();
   document.title = "LOGIN";
 
@@ -18189,13 +18189,22 @@ function Login(_ref) {
     }
 
     setOpen(false);
-  };
+  }; // useEffect(() => {
+  //     if (flashMsg.key) {
+  //         setOpen(true);
+  //     }
+  // }, [flashMsg]);
 
-  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
-    if (flashMsg.key) {
-      setOpen(true);
-    }
-  }, [flashMsg]);
+
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
     component: "main",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -18213,9 +18222,9 @@ function Login(_ref) {
           open: open,
           onClose: handleClose,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_lab_Alert__WEBPACK_IMPORTED_MODULE_13__["default"], {
-            severity: flashMsg.type,
+            severity: "red",
             variant: "filled",
-            children: t(flashMsg.key)
+            children: "failed login"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: classes.paper,
@@ -18283,14 +18292,28 @@ function Login(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
               container: true,
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                component: _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink,
-                href: route("password.forgot"),
+                component: _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink // href={route("password.forgot")}
+                ,
                 variant: "body2",
                 children: "Forgot password?"
               })
             })]
           })]
         })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      item: true,
+      className: classes.styleContainer,
+      xs: 12,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_22__["default"], {
+        variant: "outlined",
+        onClick: function onClick() {
+          _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.get(route("login.provider", {
+            driver: 'google'
+          }));
+        },
+        className: "btn btn-secondary",
+        children: "Google sign In"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_23__["default"], {
       mt: 8,
